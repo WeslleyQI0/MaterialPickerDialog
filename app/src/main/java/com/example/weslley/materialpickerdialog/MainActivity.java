@@ -29,8 +29,12 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                calendar = Calendar.getInstance();
-                int year = calendar.get(Calendar.YEAR);
+
+
+                calendar = Calendar.getInstance(); //Cria uma Instancia de Calendar
+                int year = calendar.get(Calendar.YEAR); // Pega o ano atua e Adiciona a variavel "year"
+
+                //Mostra o ano atual e mais dez anos a frente no DialogPicker
                 NumberPickerDialog dialog=new NumberPickerDialog(MainActivity.this, year , year + 10, new NumberPickerDialog.NumberPickerCallBack() {
                     @Override
                     public void onSelectingValue(int value) {
@@ -39,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 });
                 dialog.show();
 
+                //Picker de Numeros
                 /*NumberPickerDialog dialog=new NumberPickerDialog(MainActivity.this, -50, 50, new NumberPickerDialog.NumberPickerCallBack() {
                     @Override
                     public void onSelectingValue(int value) {
@@ -47,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 });
                 dialog.show();*/
 
+                //Picker de Genero
                 /*GenderPickerDialog dialog=new GenderPickerDialog(MainActivity.this);
                 dialog.setOnSelectingGender(new GenderPickerDialog.OnGenderSelectListener() {
                     @Override
@@ -57,27 +63,5 @@ public class MainActivity extends AppCompatActivity {
                 dialog.show();*/
             }
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }
